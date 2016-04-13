@@ -20,7 +20,10 @@ function writeDB(){
     name : document.getElementById("name").value,
     mail : document.getElementById("email").value,
     company : document.getElementById("company").value,
-    message : document.getElementById("message").value
+    message : document.getElementById("message").value,
+    date : (new Date()).toJSON(),
+    checked : false,
+    confirmed : false
   };
   var myFirebaseRef;
   // Creation de la référence au serveur en conséquence du type de la demande
