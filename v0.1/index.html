@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 </head>
 <body>
   <div class="navbar-fixed">
@@ -207,22 +208,22 @@
     <div class="modal-content">
       <h4>Réservation et renseignements RIFs 2016-17</h4>
       <div class="row">
-        <form class="col s12">
+        <form class="col s12" role="form">
           <div class="row">
             <div class="input-field col l6 s12">
-              <input id="name" type="text" class="validate">
+              <input id="name" name="name" type="text" class="validate">
               <label for="name" data-error="Données invalide" data-success="Données valide">Nom</label>
             </div>
             <div class="input-field col l6 s12">
-              <input id="firstname" type="text" class="validate">
+              <input id="firstname" name="firstname" type="text" class="validate">
               <label for="firstname" data-error="Données invalide" data-success="Données valide">Prénom</label>
             </div>
             <div class="input-field col l6 s12">
-              <input id="email" type="email" class="validate">
+              <input id="email" name="email" type="email" class="validate">
               <label for="email" data-error="Adresse mail invalide" data-success="Mail valide">Email</label>
             </div>
             <div class="input-field col l6 s12">
-              <select>
+              <select id="selectOptions">
                 <option value="" disabled selected>Choisissez une option</option>
                 <option value="1">Inscription aux RIFs édition 2016-17</option>
                 <option value="2">Demande de renseignements</option>
@@ -231,32 +232,28 @@
               <label class="grey-text">Objet du contact</label>
             </div>
             <div class="input-field col s12">
-              <input id="company" type="text" class="validate">
+              <input id="company" name="company" type="text" class="validate">
               <label for="company" data-error="Données invalide" data-success="Données valide">Entreprise</label>
             </div>
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea" length="400"></textarea>
-              <label for="textarea1">Message</label>
+              <textarea id="message" name="message" class="materialize-textarea" length="400"></textarea>
+              <label for="message">Message</label>
             </div>
           </div>
-        </form>
-        <div class="col s12">
-          <div class="g-recaptcha" data-sitekey="6LdwGB0TAAAAAEbwvgtZniWzTbrgBVU9zXdODflN"></div>
+          <div class="col s12">
+            <div class="g-recaptcha" data-sitekey="6LdwGB0TAAAAAEbwvgtZniWzTbrgBVU9zXdODflN"></div>
+          </div>
         </div>
       </div>
-
-
-
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="Materialize.toast('Demande envoyée avec succés, merci !', 4000,'',function(){})">Envoyer</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close">Annuler</a>
-    </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="writeDB()">Envoyer</a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close">Annuler</a>
+      </div>
+    </form>
   </div>
 
-
   <footer class="page-footer">
-    <div class="container">
+    <div class="container">1
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Rencontre IF - Informations complémentaires</h5>
